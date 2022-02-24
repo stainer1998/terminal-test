@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const inquirerFileTreeSelection = require("inquirer-file-tree-selection-prompt");
 const fs = require("fs");
 const path = require("path");
+const os = require("os")
 
 inquirer.registerPrompt("file-tree-selection", inquirerFileTreeSelection);
 
@@ -13,8 +14,8 @@ inquirer.prompt([
     },
     {
         type: "file-tree-selection",
-        root: "/",
-        name: "folder"
+        name: "folder",
+        root: os.homedir()
     }
 ]).then(async (answers) => {
 
