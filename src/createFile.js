@@ -8,7 +8,7 @@ inquirer.prompt([
   {
     type: "input",
     name: "name",
-    message: "Type your file name"
+    message: "Type your file name (without extension)"
   },
   {
     type: "input",
