@@ -1,7 +1,10 @@
+#!/usr/bin/env node
+
 const os = require("os");
 const si = require("systeminformation");
 const { formatBytes } = require("./helper/formatBytes.js")
 const nodeDiskInfo = require('node-disk-info');
+
 
 console.log('Total Memory: '+ formatBytes(os.totalmem()));
 console.log('Free Memory: '+ formatBytes(os.freemem()));
@@ -10,13 +13,13 @@ console.log('Current directory:' + process.cwd());
 
 try {
     const disks = nodeDiskInfo.getDiskInfoSync();
-    //printResults('Disk Info', disks);
+    printResults('Disk Info', disks);
 } catch (e) {
     console.error(e);
 }
 
-si.wifiNetworks()
-    .then(data => console.log(data))
+si.cpuTemperature()
+    .then(data => console.log(`CPU Temperature: ${data.main} °C`))
     .catch(error => console.error(error));
 
 function printResults(title, disks) {

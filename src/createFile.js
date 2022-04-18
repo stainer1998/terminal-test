@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const inquirer = require("inquirer");
 const inquirerFileTreeSelection = require("inquirer-file-tree-selection-prompt");
 const fs = require("fs");
